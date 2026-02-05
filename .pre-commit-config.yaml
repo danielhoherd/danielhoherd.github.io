@@ -2,7 +2,7 @@
 exclude: '\.pdf'
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.2.0
+    rev: v6.0.0
     hooks:
       - id: check-case-conflict
       - id: check-json
@@ -13,23 +13,29 @@ repos:
         args: ['--allow-multiple-documents']
       - id: detect-private-key
       - id: end-of-file-fixer
+      - id: file-contents-sorter
+        files: .gitignore
       - id: mixed-line-ending
         args: ['--fix=lf' ]
       - id: sort-simple-yaml
       - id: trailing-whitespace
   - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.1.9
+    rev: v1.5.6
     hooks:
       - id: remove-tabs
         exclude_types: [makefile, binary]
   - repo: https://github.com/adrienverge/yamllint.git
-    rev: v1.24.2
+    rev: v1.38.0
     hooks:
       - id: yamllint
   - repo: https://github.com/danielhoherd/pre-commit-hooks
-    rev: 07f5a00b0f7d7856d602baf5e530a4d4472d7bf3
+    rev: cd52caebd1b25fedf9dda95e4e33dcac37e146e8
     hooks:
-      - id: remove-unicode-non-breaking-spaces
+      - id: CVE-2017-18342
+      - id: forbid-whitespace-in-filenames
+      - id: remove-unicode-left-to-right-mark
       - id: remove-unicode-zero-width-non-breaking-spaces
-      - id: remove-en-dashes
-      - id: sort-gitignore
+      - id: remove-unicode-zero-width-space
+      - id: replace-en-dashes
+      - id: replace-greek-question-mark
+      - id: replace-unicode-non-breaking-spaces

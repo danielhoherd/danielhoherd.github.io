@@ -6,12 +6,11 @@ help: ## Print Makefile help.
 
 .PHONY: install-hooks
 install-hooks: ## Install git hooks.
-	pip3 install --user --upgrade pre-commit
-	pre-commit install -f --install-hooks
+	prek install -f --install-hooks
 
 .PHONY: deploy
 deploy: ## Deploy site to the default target
-	poetry run lektor deploy ${TARGET}
+	uv run lektor deploy ${TARGET}
 
 .PHONY: deploy-github
 deploy-github: TARGET = github
@@ -19,4 +18,4 @@ deploy-github: deploy ## Publish site to github
 
 .PHONY: serve
 serve: ## Serve lektor locally
-	poetry run lektor serve
+	uv run lektor serve

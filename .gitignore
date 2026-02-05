@@ -1,4 +1,2 @@
-.requirements
-.sass-cache
+.venv
 _site
-poetry.lock
